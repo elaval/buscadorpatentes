@@ -1,0 +1,46 @@
+  <!-- container -->
+  <div class="container">
+
+    <!-- selector -->
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row selector">
+
+        <!-- Selectores - Columna 1 -->
+        <form class="form col-md-12" role="form" >
+            <!-- Texto a buscar -->
+            <div class="form-group">
+              <label class="col-md-12 control-label"> 
+                INAPI - Busqueda de patentes
+                <input ng-change="controller.changeSearchTerm()" ng-model="controller.query" type="text" placeholder="texto a buscar"></input>
+              </label>
+              <span ng-show="controller.numFound" class='badge'>{{controller.numFound}}</span>
+              <span class="badge" ng-show="controller.searching">Buscando</span>
+            </div><!-- texto a buscar -->
+        </form> <!-- Selectores - Columna 1 -->
+
+ 
+        </div>       
+      </div>
+    </div><!-- selector -->
+
+
+
+    <div class="row main">
+      <!-- Group Panel -->
+      <div class="panel panel-primary" ng-repeat="(group, records) in controller.groups">
+        <div class="panel-heading">{{group}}</div>
+ 
+ 
+        <div class="panel-body">
+          <div td-country-bucket class="row" td-data="records" td-color-attribute="'country'" td-size-attribute="'size'" td-x-attribute="'source'" td-unidad="'registros'" td-key-attribute="'document-number'" td-tooltip-message="controller.tooltipMessage" td-color-legend="controller.searchLegend" td-width="'800'" td-height="'100'"></div>     
+        </div>
+
+        <div class="panel-footer">{{records.length}} registros</div>
+      </div><!-- selector -->
+
+
+    </div> <!-- main -->
+
+
+  </div><!-- container -->
